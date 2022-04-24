@@ -1,0 +1,18 @@
+name = "JuliaDebuggingWorkshop"
+uuid = "8a0e498b-3668-4bff-9e91-56e83318767f"
+authors = ["Luca Ferranti "]
+version = "0.1.0"
+
+[deps]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+Debugger = "31a5f54b-26ea-5ae9-a837-f05ce5417438"
+DynamicPolynomials = "7c1d4256-1411-5781-91ec-d7bc3513ac07"
+Infiltrator = "5903a43b-9cc3-4c30-8d17-598619ec4e9b"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
