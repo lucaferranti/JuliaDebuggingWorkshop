@@ -206,10 +206,35 @@ end
 
 A list of available exceptions can be found [here](https://docs.julialang.org/en/v1/manual/control-flow/#Built-in-Exceptions).
 
-With the design above, 
+With the design above, if we call the function with arguments which are not numbers, we will get a method error
+
+```julia
+julia> mydivision("123", "456")
+ERROR: MethodError: no method matching mydivision(::String, ::String)
+Stacktrace:
+ [1] top-level scope
+   @ REPL[2]:1
+```
+
+This is ok, but if you want, you can also define a fallback method with a more informative error message
+
+```julia
+mydivision(x, y) = throw(ArgumentError("expected two numbers, but got $(typeof(x)) and $(typeof(y)) instead."))
+```
+
+```juli
+julia> mydivision("123", [1, 2, 3])
+ERROR: ArgumentError: expected two numbers, but got String and Vector{Int64} instead.
+Stacktrace:
+ [1] mydivision(x::String, y::Vector{Int64})
+   @ Main ./REPL[3]:1
+ [2] top-level scope
+   @ REPL[4]:1
+```
+
 ### The one where we get serious
 
-Interactive demo about `Debugger.jl` and `Infiltrator.jl`. 
+Interactive demo about `Debugger.jl` and `Infiltrator.jl`. This will be done using the codes in `debuggerdemo.jl` and `rref.jl`
 
 ### The one where you are on your own
 
@@ -221,7 +246,7 @@ The function `increment` should add ``1`` to the given input, but it doesn't see
 
 #### Exercise 2
 
-This package has some tests that can be run with `using Pkg; Pkg.test()`. All tests reguard the function in `exercise2.jl`. At the moment all tests are failing, it is your task to fix them!
+This package has some tests that can be run with `using Pkg; Pkg.test()`. All tests reguard the functions in `exercise2.jl`. At the moment all tests are failing, it is your task to fix them!
 
 **Hint!**: If you get stuck at a test and want to move on to fix the next one, you can change `@test` to `@test_skip`
 
