@@ -1,6 +1,6 @@
 module JuliaDebuggingWorkshop
 
-greet() = print("Hello Universe!")
+greet() = print("Hello World!")
 
 export greet,
     badloop, complexfunction,
